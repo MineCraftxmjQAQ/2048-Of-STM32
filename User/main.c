@@ -102,93 +102,111 @@ int main(void)
 			}
 			for (i = 0; i < 4; i++)//输出主操作数组至OLED屏
 			{
-				OLED_ShowNum(i + 1, 1, a[i * 4 + 1], 3);
-				OLED_ShowNum(i + 1, 5, a[i * 4 + 2], 3);
-				OLED_ShowNum(i + 1, 9, a[i * 4 + 3], 3);
-				OLED_ShowNum(i + 1, 13, a[i * 4 + 4], 3);
+				if (a[i * 4 + 1] != 0)
+				{
+					if (a[i * 4 + 1] < 10)
+					{
+						OLED_ShowString(i + 1, 1, "   ");
+						OLED_ShowNum(i + 1, 4, a[i * 4 + 1], 1);
+					}
+					else if (a[i * 4 + 1] < 100)
+					{
+						OLED_ShowString(i + 1, 1, "  ");
+						OLED_ShowNum(i + 1, 3, a[i * 4 + 1], 2);
+					}
+					else if (a[i * 4 + 1] < 1000)
+					{
+						OLED_ShowString(i + 1, 1, " ");
+						OLED_ShowNum(i + 1, 2, a[i * 4 + 1], 3);
+					}
+					else
+					{
+						OLED_ShowNum(i + 1, 1, a[i * 4 + 1], 4);
+					}	
+				}
+				else
+				{
+					OLED_ShowString(i + 1, 1, "    ");
+				}
+				if (a[i * 4 + 2] != 0)
+				{
+					if (a[i * 4 + 2] < 10)
+					{
+						OLED_ShowString(i + 1, 5, "   ");
+						OLED_ShowNum(i + 1, 8, a[i * 4 + 2], 1);
+					}
+					else if (a[i * 4 + 2] < 100)
+					{
+						OLED_ShowString(i + 1, 5, "  ");
+						OLED_ShowNum(i + 1, 7, a[i * 4 + 2], 2);
+					}
+					else if (a[i * 4 + 2] < 1000)
+					{
+						OLED_ShowString(i + 1, 5, " ");
+						OLED_ShowNum(i + 1, 6, a[i * 4 + 2], 3);
+					}
+					else
+					{
+						OLED_ShowNum(i + 1, 5, a[i * 4 + 2], 4);
+					}
+				}
+				else
+				{
+					OLED_ShowString(i + 1, 5, "    ");
+				}
+				if (a[i * 4 + 3] != 0)
+				{
+					if (a[i * 4 + 3] < 10)
+					{
+						OLED_ShowString(i + 1, 9, "   ");
+						OLED_ShowNum(i + 1, 12, a[i * 4 + 3], 1);
+					}
+					else if (a[i * 4 + 3] < 100)
+					{
+						OLED_ShowString(i + 1, 9, "  ");
+						OLED_ShowNum(i + 1, 11, a[i * 4 + 3], 2);
+					}
+					else if (a[i * 4 + 3] < 1000)
+					{
+						OLED_ShowString(i + 1, 9, " ");
+						OLED_ShowNum(i + 1, 10, a[i * 4 + 3], 3);
+					}
+					else
+					{
+						OLED_ShowNum(i + 1, 9, a[i * 4 + 3], 4);
+					}
+				}
+				else
+				{
+					OLED_ShowString(i + 1, 9, "    ");
+				}
+				if (a[i * 4 + 4] != 0)
+				{
+					if (a[i * 4 + 4] < 10)
+					{
+						OLED_ShowString(i + 1, 13, "   ");
+						OLED_ShowNum(i + 1, 16, a[i * 4 + 4], 1);
+					}
+					else if (a[i * 4 + 4] < 100)
+					{
+						OLED_ShowString(i + 1, 13, "  ");
+						OLED_ShowNum(i + 1, 15, a[i * 4 + 4], 2);
+					}
+					else if (a[i * 4 + 4] < 1000)
+					{
+						OLED_ShowString(i + 1, 13, " ");
+						OLED_ShowNum(i + 1, 14, a[i * 4 + 4], 3);
+					}
+					else
+					{
+						OLED_ShowNum(i + 1, 13, a[i * 4 + 4], 4);
+					}
+				}
+				else
+				{
+					OLED_ShowString(i + 1, 13, "    ");
+				}
 			}
-//不显示补充0的方案
-//			OLED_Clear();
-//			for (i = 0; i < 4; i++)//输出主操作数组至OLED屏
-//			{
-//				if (a[i * 4 + 1] != 0)
-//				{
-//					if (a[i * 4 + 1] < 10)
-//					{
-//						OLED_ShowNum(i + 1, 4, a[i * 4 + 1], 1);
-//					}
-//					else if (a[i * 4 + 1] < 100)
-//					{
-//						OLED_ShowNum(i + 1, 3, a[i * 4 + 1], 2);
-//					}
-//					else if (a[i * 4 + 1] < 1000)
-//					{
-//						OLED_ShowNum(i + 1, 2, a[i * 4 + 1], 3);
-//					}
-//					else
-//					{
-//						OLED_ShowNum(i + 1, 1, a[i * 4 + 1], 4);
-//					}	
-//				}
-//				if (a[i * 4 + 2] != 0)
-//				{
-//					if (a[i * 4 + 2] < 10)
-//					{
-//						OLED_ShowNum(i + 1, 8, a[i * 4 + 2], 1);
-//					}
-//					else if (a[i * 4 + 2] < 100)
-//					{
-//						OLED_ShowNum(i + 1, 7, a[i * 4 + 2], 2);
-//					}
-//					else if (a[i * 4 + 2] < 1000)
-//					{
-//						OLED_ShowNum(i + 1, 6, a[i * 4 + 2], 3);
-//					}
-//					else
-//					{
-//						OLED_ShowNum(i + 1, 5, a[i * 4 + 2], 4);
-//					}
-//				}
-//				if (a[i * 4 + 3] != 0)
-//				{
-//					if (a[i * 4 + 3] < 10)
-//					{
-//						OLED_ShowNum(i + 1, 12, a[i * 4 + 3], 1);
-//					}
-//					else if (a[i * 4 + 3] < 100)
-//					{
-//						OLED_ShowNum(i + 1, 11, a[i * 4 + 3], 2);
-//					}
-//					else if (a[i * 4 + 3] < 1000)
-//					{
-//						OLED_ShowNum(i + 1, 10, a[i * 4 + 3], 3);
-//					}
-//					else
-//					{
-//						OLED_ShowNum(i + 1, 9, a[i * 4 + 3], 4);
-//					}
-//				}
-//				if (a[i * 4 + 4] != 0)
-//				{
-//					if (a[i * 4 + 4] < 10)
-//					{
-//						OLED_ShowNum(i + 1, 16, a[i * 4 + 4], 1);
-//					}
-//					else if (a[i * 4 + 4] < 100)
-//					{
-//						OLED_ShowNum(i + 1, 15, a[i * 4 + 4], 2);
-//					}
-//					else if (a[i * 4 + 4] < 1000)
-//					{
-//						OLED_ShowNum(i + 1, 14, a[i * 4 + 4], 3);
-//					}
-//					else
-//					{
-//						OLED_ShowNum(i + 1, 13, a[i * 4 + 4], 4);
-//					}
-//				}
-//			}
-//			Delay_ms(200);
 			for (i = 1; i <= v * v; i++)//复制a数组操作前状态
 			{
 				b[i] = a[i];
@@ -349,6 +367,6 @@ int main(void)
 					}
 				}
 			}
-		}		
+		}
 	}
 }
